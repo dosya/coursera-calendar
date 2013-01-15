@@ -6,7 +6,7 @@
   "version": "1.0",
 
   "permissions": [
-    "https://class.coursera.org/"
+    "tabs", "https://class.coursera.org/"
   ],
   "background" : {
     "scripts": ["background.js"]

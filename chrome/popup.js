@@ -7,19 +7,33 @@ function showTimes() {
     table.removeChild(table.children[table.children.length - 1])
   }
   for (var i = 0; i < allTimes.length; ++i) {
+    var ev = allTimes[i];
     var row = document.createElement('tr');
     var col0 = document.createElement('td');
     col0.align = 'left';
     var col1 = document.createElement('td');
     col1.align = 'left';
+    
     var p = document.createElement('p');
-    var ev = allTimes[i];
-    p.innerText = ev['time']
+    p.innerText = ev['time'];
+    
+    var a0 = document.createElement('a');
+    a0.href = 'http://www.google.com/calendar/event?action=TEMPLATE&' + 'Parameter1;&Parameter2;&Parameter3;';
+    
+    var img = document.createElement('img');
+    img.src = 'icon.png';
+    img.alt = '';
+    
+    a0.appendChild(img)
     col0.appendChild(p);
-    var a = document.createElement('a');
-    a.href = ev['url'];
-    a.innerText = ev['title'];
-    col1.appendChild(a);
+    col0.appendChild(a0);
+    
+    var a1 = document.createElement('a');
+    a1.href = ev['url'];
+    a1.innerText = ev['title'];
+    
+    col1.appendChild(a1);
+    
     col1.style.whiteSpace = 'nowrap';
     /*col1.onclick = function() {
       checkbox.checked = !checkbox.checked;
