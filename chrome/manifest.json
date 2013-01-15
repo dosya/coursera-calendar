@@ -8,8 +8,29 @@
   "permissions": [
     "https://class.coursera.org/"
   ],
-  "browser_action": {
-    "default_icon": "icon.png",
+  "background" : {
+    "scripts": ["background.js"]
+  },
+  "page_action" :
+  {
+    "default_icon" : "sandwich-19.png",
+    "default_title" : "Add deadlines from this page",
     "default_popup": "popup.html"
+  },
+  "content_scripts" : [
+    {
+      "matches" : [
+        "http://class.coursera.org/*/class/index",
+        "https://class.coursera.org/*/class/index"
+      ],
+      "js" : ["contentscript.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "icons" : {
+    "48" : "sandwich-48.png",
+    "128" : "sandwich-128.png"
   }
+
 }
