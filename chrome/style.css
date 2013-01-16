@@ -1,0 +1,15 @@
+html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;line-height:20px;color:#333;background-color:#fff}
+
+a:hover,a:active{outline:0}
+a{color:#08c;text-decoration:none}
+a:hover{color:#0074ad;text-decoration:underline}
+
+p{margin:0 0 10px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;line-height:20px;}
+p small{font-size:8px;color:#999}
+
+img{max-width:100%;height:auto;border:0;-ms-interpolation-mode:bicubic}
+
+th{white-space: nowrap;}
+td{white-space: nowrap;}
+table{max-width:100%;border-collapse:collapse;border-spacing:0}
