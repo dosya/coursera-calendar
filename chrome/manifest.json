@@ -13,7 +13,7 @@
   },
   "page_action" :
   {
-    "default_icon" : "sandwich-19.png",
+    "default_icon" : "icon-20.png",
     "default_title" : "Add deadlines from this page",
     "default_popup": "popup.html"
   },
@@ -29,8 +29,8 @@
     }
   ],
   "icons" : {
-    "48" : "sandwich-48.png",
-    "128" : "sandwich-128.png"
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
   }
 
 }

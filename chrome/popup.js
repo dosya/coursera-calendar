@@ -63,7 +63,7 @@ function showTimes() {
     col0.appendChild(a0);
     
     var img = document.createElement('img');
-    img.src = 'icon.png';
+    img.src = 'icon-20.png';
     img.alt = '';
     a0.appendChild(img);
     
