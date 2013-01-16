@@ -3,7 +3,7 @@
 
   "name": "Coursera Calendar",
   "description": "This extension allows to add deadlines from Coursera course website to your Google Calendar.",
-  "version": "1.0",
+  "version": "0.0.0.1",
 
   "permissions": [
     "tabs", "https://class.coursera.org/"
