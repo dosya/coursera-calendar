@@ -13,12 +13,8 @@
       "matches" : [
         "http://class.coursera.org/*/class/index",
         "https://class.coursera.org/*/class/index",
-        "http://class.coursera.org/*/quiz/index",
-        "https://class.coursera.org/*/quiz/index",
         "http://class.coursera.org/*/quiz/index*",
         "https://class.coursera.org/*/quiz/index*",
-        "http://class.coursera.org/*/assignment/index",
-        "https://class.coursera.org/*/assignment/index",
         "http://class.coursera.org/*/assignment/index*",
         "https://class.coursera.org/*/assignment/index*"
       ],
