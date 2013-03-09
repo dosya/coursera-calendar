@@ -39,19 +39,3 @@ deadlines = deadlines.map(function(element) {
   element.appendChild(createAddLink(duedate, title, url));
 });
 
-var humangrading = document.getElementsByTagName('span'), i;
-for (i in humangrading) {
-  if((' ' + humangrading[i].className + ' ').indexOf(' hg-date ') > -1) {
-    var e = humangrading[i];
-    var timer = e.getAttribute('data-livetimer-date-primitive');
-    if (timer) {
-      var ts = parseInt(timer);
-      var end = formatDateToTimestamp(new Date(ts));
-      ts = ts - 1000*60*30;
-      var strt = formatDateToTimestamp(new Date(ts));
-      e.style.whiteSpace = 'nowrap';
-      e.childNodes[0].appendData(' ');
-      e.appendChild(createAddLink(strt + '/' + end, '', ''));
-    }
-  }
-}
