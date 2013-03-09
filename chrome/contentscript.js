@@ -7,6 +7,12 @@ function parseCourseraTimestamp(timestamp) {
     return new Date();
 }
 
+function formatDateToTimestamp(date) {
+  var d = '' + date.getUTCFullYear() + '' + date.getUTCMonth() + '' + date.getUTCDay();
+  var t = 'T' + date.getUTCHours() + '' + date.getUTCMinutes() + '' + date.getUTCSeconds() + 'Z';
+  return d+t;
+}
+
 function createGoogleCalendarLink(timestamp, title, url) {
     return 'http://www.google.com/calendar/event?action=TEMPLATE' + '&text=' + encodeURIComponent(title) + '&dates=' + encodeURIComponent(timestamp) + '&details=' + encodeURI(url);
 }
@@ -28,6 +34,24 @@ deadlines = deadlines.map(function(element) {
   var title = element.getAttribute('data-event-title');
   var url = element.getAttribute('data-event-location');
   var duedate = element.getAttribute('data-event-times');
-  element.parentNode.style.whiteSpace = 'nowrap';
-  element.parentNode.appendChild(createAddLink(duedate, title, url));
+  element.style.whiteSpace = 'nowrap';
+  element.childNodes[0].appendData(' ');
+  element.appendChild(createAddLink(duedate, title, url));
 });
+
+var humangrading = document.getElementsByTagName('span'), i;
+for (i in humangrading) {
+  if((' ' + humangrading[i].className + ' ').indexOf(' hg-date ') > -1) {
+    var e = humangrading[i];
+    var timer = e.getAttribute('data-livetimer-date-primitive');
+    if (timer) {
+      var ts = parseInt(timer);
+      var end = formatDateToTimestamp(new Date(ts));
+      ts = ts - 1000*60*30;
+      var strt = formatDateToTimestamp(new Date(ts));
+      e.style.whiteSpace = 'nowrap';
+      e.childNodes[0].appendData(' ');
+      e.appendChild(createAddLink(strt + '/' + end, '', ''));
+    }
+  }
+}
