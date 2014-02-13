@@ -3,7 +3,7 @@
 
   "name": "Coursera Calendar",
   "description": "This extension adds a link next to list of deadlines on Coursera's website to add the event to your Google Calendar.",
-  "version": "0.0.0.4",
+  "version": "0.0.0.5",
   "web_accessible_resources" : [
     "icon-20.png"
   ],
@@ -11,12 +11,8 @@
   "content_scripts" : [
     {
       "matches" : [
-        "http://class.coursera.org/*/class/index",
-        "https://class.coursera.org/*/class/index",
-        "http://class.coursera.org/*/quiz/index*",
-        "https://class.coursera.org/*/quiz/index*",
-        "http://class.coursera.org/*/assignment/index*",
-        "https://class.coursera.org/*/assignment/index*"
+        "http://class.coursera.org/*",
+        "https://class.coursera.org/*"
       ],
       "js" : ["contentscript.js"],
       "run_at" : "document_end",
