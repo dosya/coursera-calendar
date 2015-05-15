@@ -8,9 +8,14 @@ function parseCourseraTimestamp(timestamp) {
 }
 
 function formatDateToTimestamp(date) {
-  var d = '' + date.getUTCFullYear() + '' + date.getUTCMonth() + '' + date.getUTCDay();
-  var t = 'T' + date.getUTCHours() + '' + date.getUTCMinutes() + '' + date.getUTCSeconds() + 'Z';
-  return d+t;
+  var month = '0' + (date.getUTCMonth() + 1);
+  var day = '0' + date.getUTCDate();
+  var d = date.getUTCFullYear() + month.substr(month.length - 2) + day.substr(day.length - 2);
+  var hours = '0' + date.getUTCHours();
+  var minutes = '0' + date.getUTCMinutes();
+  var seconds = '0' + date.getUTCSeconds();
+  var t = hours.substr(hours.length - 2) + minutes.substr(minutes.length - 2) + seconds.substr(seconds.length - 2);
+  return d + 'T' + t + 'Z';
 }
 
 function createGoogleCalendarLink(timestamp, title, url) {
@@ -39,3 +44,27 @@ deadlines = deadlines.map(function(element) {
   element.appendChild(createAddLink(duedate, title, url));
 });
 
+var assignments = [].slice.apply(document.getElementsByClassName('hg-asst-list-item'));
+assignments = assignments.map(function(element) {
+  var title = element.getElementsByClassName('hg-asst-title')[0].childNodes[0].data.trim();
+  var actions = [].slice.apply(element.getElementsByClassName('hg-asst-line'));
+  actions = actions.map(function(action) {
+    var verb = action.getElementsByClassName('hg-asst-interval-label')[0].childNodes[0].data;
+    var closing = [].slice.apply(action.getElementsByClassName('hg-asst-interval-close'));
+    closing = closing.map(function(el) {
+      var date = el.getElementsByClassName('hg-date')[0];
+      if (date) {
+        var timestamp = date.getAttribute('data-livetimer-date-primitive');
+        if (timestamp) {
+          var d = new Date(timestamp * 1);
+          span = document.createElement('span');
+          date.appendChild(span);
+          var duedate = formatDateToTimestamp(d);
+          d.setUTCMinutes(d.getUTCMinutes() - 30);
+          duedate = formatDateToTimestamp(d) + '/' + duedate;
+          span.appendChild(createAddLink(duedate, title + ' - ' + verb, document.URL));
+        }
+      }
+    });
+  });
+});
