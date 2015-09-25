@@ -1,6 +1,10 @@
 Coursera Calendar
 =================
 
+**DEPRECATED:** With the new redesign of the Coursera website this extension doesn't work anymore
+and there is no easy way to fix this. If someone has time and desire to take care of that -
+pull requests are welcome.
+
 About
 -----
 
@@ -15,7 +19,5 @@ Licensed under [WTFPL](http://www.wtfpl.net/).
 Disclaimer
 ----------
 
- * It's my first and only thing I wrote in JavaScript, so when you read the code you may feel
+It's my first and only thing I wrote in JavaScript, so when you read the code you may feel
 offended by the way this extension is implemented. I warned you.
- * This extension is not being actively developed. If you find out that it doesn't work anymore
-feel free to fix it or nag me to do something about this.
